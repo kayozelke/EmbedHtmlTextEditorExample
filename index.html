@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed HTML Text Editor Example</title>
+    <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/css/suneditor.min.css" rel="stylesheet">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/assets/css/suneditor.css" rel="stylesheet"> -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/suneditor@latest/assets/css/suneditor-contents.css" rel="stylesheet"> -->
+    <script src="https://cdn.jsdelivr.net/npm/suneditor@latest/dist/suneditor.min.js"></script>
+    <!-- languages (Basic Language: English/en) -->
+    <script src="https://cdn.jsdelivr.net/npm/suneditor@latest/src/lang/pl.js"></script>
+</head>
+
+<body>
+
+    <h1>Embed HTML Text Editor Example</h1>
+    <p><a href="https://github.com/JiHong88/SunEditor">https://github.com/JiHong88/SunEditor</a></p>
+
+    <textarea id="sample" style="width:100%; height:300px;">Hello world</textarea>
+
+</body>
+
+<script>
+    // /**
+    // * ID : 'suneditor_sample'
+    // * ClassName : 'sun-eidtor'
+    // */
+    // // ID or DOM object
+    const editor = SUNEDITOR.create((document.getElementById('sample') || 'sample'),{
+        // All of the plugins are loaded in the "window.SUNEDITOR" object in dist/suneditor.min.js file
+        // Insert options
+        // Language global object (default: en)
+        lang: SUNEDITOR_LANG['pl'],
+        buttonList: [
+            // all buttons
+            ['undo', 'redo'],
+            ['font', 'fontSize', 'formatBlock'],
+            ['paragraphStyle', 'blockquote'],
+            ['bold', 'underline', 'italic', 'strike', 'subscript', 'superscript'],
+            ['fontColor', 'hiliteColor', 'textStyle'],
+            ['align', 'horizontalRule', 'list', 'lineHeight'],
+            ['outdent', 'indent'],
+            ['table', 'link', 'image', 'video', 'audio'],
+            ['fullScreen', 'showBlocks', 'codeView'],
+            ['preview', 'print'],
+            ['removeFormat']
+        ],
+        imageFileInput: false,
+        // maxCharCount: 15
+    });
+
+    console.log(editor.getContents());
+
+
+    // non existing element at this project, just an example of how to use editor content (a formatted text) at form with submit
+
+    // const form = document.getElementById('postForm');
+
+    // // Add submit handler
+    // form.addEventListener('submit', function(event) {
+    //     const content = editor.getContents();
+    //     // set hidden field content, it will keep HTML code of editor input
+    //     document.getElementById('postContent').value = content;
+    // });
+</script>
+
+</html>
